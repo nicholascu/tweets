@@ -1,33 +1,108 @@
-<%= form_tag(tweets_path, :method => "get", id: "search-form") do %>
-<%= text_field_tag :search, params[:search], placeholder: "Search Posts" %>
-<%= submit_tag "Search" %>
-<% end %>
+<!-- Navigation -->
+   <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+       <div class="container">
+           <!--  -->
+           <div class="navbar-header">
+            <form class="navbar-form navbar-left" role="search">
+            <%= form_tag(tweets_path, :method => "get", id: "search-form") do %>
+                <div class="form-group">
+                <%= text_field_tag :search, params[:search], placeholder: "Search Usernames" %>
+                    <!-- <input type="Search" class="form-control" placeholder="Search"> -->
+                </div>
+                <!-- <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button> -->
+               <%= submit_tag "Search" %>
+              <% end %>
+            </form>
+               <!-- <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                   <span class="sr-only">Toggle navigation</span>
+                   <span class="icon-bar"></span>
+                   <span class="icon-bar"></span>
+                   <span class="icon-bar"></span>
+               </button>
+               <a class="navbar-brand" href="#"></a> -->
+           </div>
+           <!-- Collect the nav links, forms, and other content for toggling -->
+           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+               <ul class="nav navbar-nav">
+<!--                    <li>
+                       <a href="#"></a>
+                   </li>
+                   <li>
+                       <a href="#"></a>
+                   </li>
+                   <li>
+                       <a href="#"></a>
+                   </li> -->
+               </ul>
+           </div>
+           <!-- /.navbar-collapse -->
+       </div>
+       <!-- /.container -->
+   </nav>
 
-<h1><%= @twitter_user.user_name %>  Tweets</h1>
- 
-<table>
-  <tr>
-    <th>Tweets</th>
-  </tr>
- 
-  <% @twitter_timeline.each do |tweet| %>
-    <tr>
-      <td><%= tweet.full_text %></td>
-      <!-- <td><%= tweet.text %></td> -->
-    </tr>
-  <% end %>
-</table>
-<!-- 
-<%= form_for :tweet, url: tweets_path do |f| %>
-  <p>
-    <%= f.label :username %><br>
-    <%= f.text_field :username %>
-  </p>
+   <!-- Page Content -->
+   <div class="container">
 
-  <p>
-    <%= f.submit %>
-  </p>
-<% end %> -->
+       <!-- Jumbotron Header -->
+       <header class="jumbotron hero-spacer">
+           <h1 class="text-center"><%= @twitter_user.user_name %></h1>
+<!--            <p>Enjoy.</p>
+           <p><a class="btn btn-primary btn-large">Call to action!</a>
+           </p> -->
+       </header>
+
+       <hr>
+
+       <!-- Title -->
+       <div class="row">
+           <div class="col-lg-12">
+               <h3>Recent Tweets</h3>
+           </div>
+       </div>
+       <!-- /.row -->
+
+       <!-- Page Features -->
+       <div class="row text-center">
+       	<% @twitter_timeline.each do |tweet| %>
+       	  <tr>
+           <div class="col-6 col-6 hero-feature">
+               <div class="thumbnail">
+                   <!-- <img src="http://placehold.it/800x500" alt=""> -->
+                   <div class="caption">
+                       <h3></h3>
+                       <p><%= tweet.full_text %></p>
+<!--                        <p>
+                           <a href="#" class="btn btn-primary">Buy Now!</a> <a href="#" class="btn btn-default">More Info</a>
+                       </p> -->
+                   </div>
+               </div>
+           </div>
+       	    <!-- <td><%= tweet.full_text %></td> -->
+       	    <!-- <td><%= tweet.text %></td> -->
+       	  </tr>
+       	<% end %>
 
 
+       </div>
+       <!-- /.row -->
+
+       <hr>
+
+       <!-- Footer -->
+       <footer>
+           <div class="row">
+               <div class="col-lg-12">
+                   <p></p>
+               </div>
+           </div>
+       </footer>
+
+   </div>
+   <!-- /.container -->
+
+   <!-- jQuery -->
+   <script src="js/jquery.js"></script>
+
+   <!-- Bootstrap Core JavaScript -->
+   <script src="js/bootstrap.min.js"></script>
 
