@@ -1,4 +1,5 @@
 class TweetsController < ApplicationController
+
 	def index
 		@username = params[:search]
 		@twitter_user = $twitter.user(@username ||= "StackCommerce")
