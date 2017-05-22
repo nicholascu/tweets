@@ -30,7 +30,7 @@ RSpec.describe TweetsController, :type => :controller do
 
   describe "GET Twitter user_timeline" do
     it "gets timeline" do
-      twitter_data = $twitter.user_timeline("stackcommerce"){count:25})
+      twitter_data = $twitter.user_timeline("stackcommerce",{count:25})
       expect(twitter_data.count).to eq(25)
     end
   end
@@ -51,7 +51,7 @@ RSpec.describe TweetsController, :type => :controller do
 
   describe "GET Twitter user_timeline" do
     it "gets timeline" do
-      twitter_data = $twitter.user_timeline("karliekloss"{count:25})
+      twitter_data = $twitter.user_timeline("karliekloss",{count:25})
       expect(twitter_data.count).to eq(25)
     end
   end
