@@ -1,25 +1,13 @@
 
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a Rails 5 / Ruby 2.2.2 app that uses the Twitter API to retrieve the last 25 tweets for any given Twitter handle.
 
-Things you may want to cover:
+Devise was used for the authentication layer and the Twitter gem was used as the interface for the Twitter API.
 
-* Ruby version
+The Twitter keys were kept as local Environment variables and subsequently as Config variables on Heroku.
 
-* System dependencies
+For time constraints, the views were kept basic with styling from Bootstrap 3.
 
-* Configuration
+Tests were done with RSpec and can be run with the command `bundle exec rspec` 
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
