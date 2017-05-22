@@ -1,0 +1,33 @@
+<%= form_tag(tweets_path, :method => "get", id: "search-form") do %>
+<%= text_field_tag :search, params[:search], placeholder: "Search Posts" %>
+<%= submit_tag "Search" %>
+<% end %>
+
+<h1><%= @twitter_user.user_name %>  Tweets</h1>
+ 
+<table>
+  <tr>
+    <th>Tweets</th>
+  </tr>
+ 
+  <% @twitter_timeline.each do |tweet| %>
+    <tr>
+      <td><%= tweet.full_text %></td>
+      <!-- <td><%= tweet.text %></td> -->
+    </tr>
+  <% end %>
+</table>
+<!-- 
+<%= form_for :tweet, url: tweets_path do |f| %>
+  <p>
+    <%= f.label :username %><br>
+    <%= f.text_field :username %>
+  </p>
+
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %> -->
+
+
+

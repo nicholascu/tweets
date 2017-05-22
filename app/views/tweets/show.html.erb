@@ -1,0 +1,17 @@
+
+<h1>Listing Tweets</h1>
+ 
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Text</th>
+  </tr>
+ 
+  <% @twitter_timeline.each do |tweet| %>
+    <tr>
+      <td><%= tweet.title %></td>
+      <td><%= tweet.text %></td>
+      <td><%= link_to 'Show', tweets_path(tweet) %></td>
+    </tr>
+  <% end %>
+</table>
