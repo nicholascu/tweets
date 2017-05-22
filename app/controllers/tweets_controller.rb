@@ -4,7 +4,7 @@ class TweetsController < ApplicationController
 		@username = params[:search]
 		@twitter_user = $twitter.user(@username ||= "StackCommerce")
 		@twitter_timeline = $twitter.user_timeline(@twitter_user, {count:25})
-		expires_in 5.minutes, :public => true
+		Rails.cache.fetch(@twitter_timeline, :expires_in => 5.minutes)
 	rescue Twitter::Error::NotFound => e
 		flash[:notice] = "USER NOT FOUND"
 		redirect_to(:action => 'index')
