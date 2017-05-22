@@ -3,11 +3,12 @@
        <div class="container">
            <!--  -->
            <div class="navbar-header col-12 col-md-6">
-           	<%= render :partial => "tweets/search" if user_signed_in? %>
+            <%= render :partial => "tweets/search" if user_signed_in? %>
+            <%= render :partial => "tweets/header" if !user_signed_in? %>
            </div>
            <!-- Collect the nav links, forms, and other content for toggling -->
            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-               <p class="navbar-text pull-right">
+               <p class="navbar-text pull-right logic">
                <% if user_signed_in? %>
                  Logged in as <strong><%= current_user.email %></strong>.
                  <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
